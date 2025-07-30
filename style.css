@@ -5,6 +5,8 @@
   --texto-principal: #fff;
   --texto-suave: #EADDE2;
   --gris: #d9d6d0;
+  --negro-panel: rgba(0,0,0,.70);
+  --dorado: #FFD700;
 }
 
 body {
@@ -27,13 +29,31 @@ body {
   flex: 0 0 340px;
   min-width: 280px;
   max-width: 360px;
-  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 56px 24px 32px 24px;
   box-sizing: border-box;
+  /* Panel negro con borde dorado a la derecha */
+  background: var(--negro-panel);
+  position: relative;
+  z-index: 1;
+  border-top-left-radius: 28px;
+  border-bottom-left-radius: 28px;
+}
+
+.sidebar::after {
+  content: "";
+  position: absolute;
+  top: 7%;
+  right: -15px;
+  width: 4px;
+  height: 86%;
+  background: linear-gradient(to bottom, var(--dorado) 0%, #fff3 100%);
+  border-radius: 3px;
+  z-index: 2;
+  box-shadow: 0 0 10px 2px #FFD70077;
 }
 
 .profile-img {
@@ -181,6 +201,10 @@ body {
     max-width: unset;
     padding: 42px 20px 20px 20px;
     gap: 32px;
+    border-radius: 0 0 22px 22px;
+  }
+  .sidebar::after {
+    display: none;
   }
   .profile-info {
     padding-left: 32px;
