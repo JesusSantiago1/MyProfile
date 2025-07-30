@@ -265,6 +265,25 @@ body {
   border-color: var(--azul);
 }
 
+.btn-cv {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--dorado);
+  color: var(--vino-oscuro);
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.12em;
+  text-decoration: none;
+  margin: 18px 0 22px 0;
+  box-shadow: 0 1.5px 8px #0002;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-cv:hover {
+  background: var(--azul);
+  color: var(--hueso);
+}
+
 .content {
   flex: 1 1 0;
   padding: 56px 48px 40px 48px;
