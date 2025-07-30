@@ -14,7 +14,6 @@
   --texto-suave: #EADDE2;
 }
 
-/* Fondo principal y base tipográfica */
 body {
   background: linear-gradient(135deg, var(--vino-oscuro) 60%, var(--vino) 100%);
   color: var(--texto-principal);
@@ -22,6 +21,50 @@ body {
   margin: 0;
   min-height: 100vh;
   letter-spacing: 0.01em;
+}
+
+.navbar {
+  width: 100vw;
+  background: var(--panel-negro-suave);
+  box-shadow: 0 2px 18px #0007;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 32px;
+  display: flex;
+  gap: 28px;
+  height: 62px;
+  align-items: center;
+}
+
+.navbar li {
+  display: inline-block;
+}
+
+.navbar a {
+  color: var(--dorado);
+  text-decoration: none;
+  font-size: 1.13em;
+  font-weight: 600;
+  font-family: 'Montserrat', Arial, sans-serif;
+  letter-spacing: 0.7px;
+  padding: 8px 20px 8px 20px;
+  border-radius: 13px 13px 0 0;
+  transition: background 0.2s, color 0.2s;
+  border-bottom: 2.5px solid transparent;
+  display: inline-block;
+}
+
+.navbar a.active,
+.navbar a:hover {
+  background: var(--vino);
+  color: var(--hueso);
+  border-bottom: 2.5px solid var(--dorado);
 }
 
 .main-layout {
@@ -50,7 +93,6 @@ body {
   box-shadow: 2px 0 32px 0 rgba(0,0,0,0.21);
 }
 
-/* Línea divisora dorada mate (no luminosa) */
 .sidebar::after {
   content: "";
   position: absolute;
@@ -125,7 +167,6 @@ body {
   color: var(--hueso);
 }
 
-/* Panel profesional negro para el bloque Sobre mí */
 .about-panel {
   background: var(--panel-negro-suave);
   border-radius: 16px;
@@ -151,7 +192,6 @@ body {
   line-height: 1.55;
 }
 
-/* Paneles para las secciones principales */
 .panel-section {
   background: var(--panel-negro-light);
   border-radius: 14px;
