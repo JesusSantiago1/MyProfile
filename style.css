@@ -1,167 +1,201 @@
 :root {
   --vino: #7B1F3A;
+  --vino-oscuro: #51132a;
   --hueso: #F8F5F2;
+  --gris: #ece6e0;
+  --panel-negro: rgba(15,15,15,0.96);
+  --panel-negro-suave: rgba(30,30,30,0.85);
+  --panel-negro-light: rgba(60,60,60,0.40);
+  --dorado: #bfa046;
   --acento: #a2335a;
+  --azul: #2D3142;
+  --acento-azul: #546a8f;
   --texto-principal: #fff;
   --texto-suave: #EADDE2;
-  --gris: #d9d6d0;
-  --negro-panel: rgba(0,0,0,.70);
-  --dorado: #FFD700;
 }
 
+/* Fondo principal y base tipográfica */
 body {
-  background: var(--vino);
+  background: linear-gradient(135deg, var(--vino-oscuro) 60%, var(--vino) 100%);
   color: var(--texto-principal);
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Segoe UI', 'Montserrat', 'Arial', sans-serif;
   margin: 0;
   min-height: 100vh;
+  letter-spacing: 0.01em;
 }
 
 .main-layout {
   display: flex;
   flex-direction: row;
   min-height: 100vh;
-  max-width: 1220px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
 .sidebar {
-  flex: 0 0 340px;
-  min-width: 280px;
-  max-width: 360px;
+  flex: 0 0 350px;
+  min-width: 260px;
+  max-width: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 56px 24px 32px 24px;
   box-sizing: border-box;
-  /* Panel negro con borde dorado a la derecha */
-  background: var(--negro-panel);
+  background: var(--panel-negro);
   position: relative;
   z-index: 1;
-  border-top-left-radius: 28px;
-  border-bottom-left-radius: 28px;
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+  box-shadow: 2px 0 32px 0 rgba(0,0,0,0.21);
 }
 
+/* Línea divisora dorada mate (no luminosa) */
 .sidebar::after {
   content: "";
   position: absolute;
   top: 7%;
-  right: -15px;
-  width: 4px;
+  right: -12px;
+  width: 3px;
   height: 86%;
-  background: linear-gradient(to bottom, var(--dorado) 0%, #fff3 100%);
-  border-radius: 3px;
+  background: var(--dorado);
+  border-radius: 2px;
   z-index: 2;
-  box-shadow: 0 0 10px 2px #FFD70077;
+  opacity: 0.75;
+  box-shadow: none;
 }
 
 .profile-img {
-  width: 180px;
-  height: 180px;
-  border-radius: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 18px;
   object-fit: cover;
-  margin-bottom: 32px;
-  border: none;
-  box-shadow: none;
+  margin-bottom: 28px;
+  border: 2.5px solid var(--dorado);
   background: var(--hueso);
+  filter: grayscale(7%);
+  box-shadow: 0 3px 18px #0005;
 }
 
 .profile-info {
   text-align: left;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .profile-info h1 {
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
   font-size: 1.45em;
   margin: 0 0 8px 0;
-  color: var(--texto-principal);
+  color: var(--dorado);
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.2px;
 }
 
 .role {
-  color: var(--texto-suave);
-  font-size: 1.05em;
-  margin: 0 0 20px 0;
+  color: var(--hueso);
+  font-size: 1.08em;
+  margin: 0 0 18px 0;
   font-weight: 500;
+  font-family: 'Montserrat', Arial, sans-serif;
+  letter-spacing: .3px;
 }
 
 .contact {
   list-style: none;
   padding: 0;
   margin: 0;
+  color: var(--texto-suave);
+  font-size: 1.02em;
+  line-height: 1.7;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .contact li {
-  margin-bottom: 10px;
-  font-size: 1em;
+  margin-bottom: 7px;
 }
-
 .contact a {
-  color: var(--gris);
-  text-decoration: underline;
+  color: var(--dorado);
+  text-decoration: underline dotted;
   transition: color 0.2s;
+  font-family: inherit;
+  font-weight: 500;
 }
 .contact a:hover {
   color: var(--hueso);
 }
 
-.content {
-  flex: 1 1 0;
-  padding: 56px 48px 40px 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-  background: transparent;
+/* Panel profesional negro para el bloque Sobre mí */
+.about-panel {
+  background: var(--panel-negro-suave);
+  border-radius: 16px;
+  padding: 24px 30px 20px 30px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 24px #0005, 0 0px 0px #bfa04633;
+  border-left: 5px solid var(--dorado);
 }
 
-.content section {
-  margin-bottom: 8px;
+.about-panel h2 {
+  color: var(--dorado);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.25em;
+  margin: 0 0 10px 0;
+  letter-spacing: 1px;
 }
 
-.content h2 {
-  color: var(--hueso);
-  font-size: 1.28em;
-  margin-top: 0;
-  margin-bottom: 10px;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-}
-
-.about-me p,
-.experience p,
-.education p {
+.about-panel p {
   color: var(--texto-suave);
-  font-size: 1.07em;
-  margin: 5px 0 0 0;
-}
-
-.experience ul,
-.education ul,
-.skills ul {
-  list-style: none;
-  padding: 0;
+  font-size: 1.09em;
   margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.55;
 }
 
-.experience li,
-.education li {
-  margin-bottom: 18px;
+/* Paneles para las secciones principales */
+.panel-section {
+  background: var(--panel-negro-light);
+  border-radius: 14px;
+  padding: 24px 28px 14px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 1.5px 15px #2d314225;
+  border-left: 4px solid var(--acento-azul);
+  border-top: 2.5px solid var(--acento);
 }
 
-.experience strong,
-.education strong {
-  color: var(--hueso);
-  font-weight: 600;
+.panel-section h2 {
+  color: var(--acento-azul);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.13em;
+  letter-spacing: 0.7px;
+  margin-top: 0;
+  margin-bottom: 11px;
 }
 
-.experience span,
-.education span {
+.panel-section ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
   color: var(--gris);
-  font-size: 0.96em;
-  font-weight: 400;
-  margin-left: 7px;
+  font-size: 1.04em;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.panel-section li {
+  margin-bottom: 15px;
+  padding-bottom: 7px;
+  border-bottom: 1px dashed var(--vino-oscuro);
+}
+
+.panel-section strong {
+  color: var(--dorado);
+  font-weight: 600;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.panel-section span {
+  color: var(--texto-suave);
+  font-size: 0.98em;
+  margin-left: 8px;
+  font-style: italic;
 }
 
 .skills ul {
@@ -171,8 +205,8 @@ body {
 }
 
 .skills li {
-  background: var(--hueso);
-  color: var(--vino);
+  background: var(--azul);
+  color: var(--hueso);
   padding: 7px 15px;
   border-radius: 16px;
   font-weight: 600;
@@ -180,18 +214,32 @@ body {
   box-shadow: 0 1.5px 8px #0002;
   letter-spacing: 0.3px;
   user-select: none;
-  transition: background 0.2s, color 0.2s;
+  border: 1.3px solid var(--dorado);
+  margin-bottom: 5px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  font-family: 'Montserrat', Arial, sans-serif;
 }
-
 .skills li:hover {
-  background: var(--acento);
-  color: var(--hueso);
+  background: var(--dorado);
+  color: var(--vino);
+  border-color: var(--azul);
 }
 
-@media (max-width: 1000px) {
+.content {
+  flex: 1 1 0;
+  padding: 56px 48px 40px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: transparent;
+  justify-content: flex-start;
+}
+
+@media (max-width: 1100px) {
   .main-layout {
     flex-direction: column;
     align-items: center;
+    max-width: 100vw;
   }
   .sidebar {
     flex-direction: row;
