@@ -7,8 +7,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Barra de navegación -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#" class="tab-link active" data-tab="inicio">Inicio</a></li>
+      <li><a href="#" class="tab-link" data-tab="proyectos">Proyectos</a></li>
+      <li><a href="#" class="tab-link" data-tab="cv">CV</a></li>
+      <li><a href="#" class="tab-link" data-tab="hobbies">Hobbies</a></li>
+    </ul>
+  </nav>
+
   <div class="main-layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <img src="foto.png" alt="Foto de Santiago Medellín" class="profile-img">
       <div class="profile-info">
         <h1>Jesús Santiago Medellín González</h1>
@@ -22,18 +32,22 @@
       </div>
     </aside>
     <main class="content">
-      <section class="about-panel">
+
+      <!-- INICIO -->
+      <section class="about-panel tab-content" id="inicio" style="display:block;">
         <h2>Sobre mí</h2>
         <p>
           Soy un estudiante de Ingeniería Industrial con interés en optimizar procesos y aportar soluciones eficientes en entornos productivos y logísticos. Con conocimientos en cadena de suministro, análisis de datos y fundamentos de programación, integro herramientas tecnológicas para apoyar la mejora continua.
         </p>
       </section>
-      <section class="panel-section experience">
-        <h2>Experiencia y Proyectos</h2>
+      
+      <!-- PROYECTOS -->
+      <section class="panel-section tab-content" id="proyectos" style="display:none;">
+        <h2>Proyectos Destacados</h2>
         <ul>
           <li>
             <strong>Six Sigma – Yellow Belt</strong> <span>ALL BRICK SA.DE.CV (Ene-May 2025)</span>
-            <p>Proyecto de mejora continua y reducción de desperdicios en el embalaje usando DMAIC.</p>
+            <p>Mejora continua y reducción de desperdicios en embalaje con la metodología DMAIC.</p>
           </li>
           <li>
             <strong>Excelencia Operativa</strong>
@@ -45,7 +59,9 @@
           </li>
         </ul>
       </section>
-      <section class="panel-section education">
+
+      <!-- CV -->
+      <section class="panel-section tab-content" id="cv" style="display:none;">
         <h2>Formación</h2>
         <ul>
           <li>
@@ -53,10 +69,8 @@
             <p>2023 - 2027</p>
           </li>
         </ul>
-      </section>
-      <section class="panel-section skills">
         <h2>Habilidades</h2>
-        <ul>
+        <ul class="skills">
           <li>SQL básico</li>
           <li>Power BI</li>
           <li>Excel</li>
@@ -66,7 +80,37 @@
           <li>Inglés (C1)</li>
         </ul>
       </section>
+
+      <!-- HOBBIES -->
+      <section class="panel-section tab-content" id="hobbies" style="display:none;">
+        <h2>Hobbies</h2>
+        <ul>
+          <li>Lectura y análisis de libros de desarrollo personal y ciencia</li>
+          <li>Ejercicio y deportes (fútbol, ciclismo)</li>
+          <li>Tecnología y aprendizaje de nuevas herramientas digitales</li>
+          <li>Música y cine</li>
+        </ul>
+      </section>
+
     </main>
   </div>
+
+  <script>
+    // Tabs funcionalidad
+    const tabs = document.querySelectorAll('.tab-link');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Quita activo
+        tabs.forEach(t => t.classList.remove('active'));
+        // Oculta todos
+        contents.forEach(c => c.style.display = 'none');
+        // Activa actual
+        this.classList.add('active');
+        document.getElementById(this.dataset.tab).style.display = 'block';
+      });
+    });
+  </script>
 </body>
 </html>
