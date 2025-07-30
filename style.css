@@ -8,8 +8,8 @@
   --panel-negro-light: rgba(60,60,60,0.40);
   --dorado: #bfa046;
   --acento: #a2335a;
-  --azul: #22324A;         /* Azul petróleo */
-  --acento-azul: #3A506B;  /* Azul petróleo claro */
+  --azul: #274472;        /* Azul profundo elegante */
+  --acento-azul: #2C3E50; /* Azul grisáceo-profundo */
   --texto-principal: #fff;
   --texto-suave: #EADDE2;
 }
@@ -203,13 +203,16 @@ body {
   border-top: 2.5px solid var(--acento);
 }
 
-.skills-section h2 {
-  color: var(--acento-azul);
+/* Títulos claros y legibles en panel-section y skills-section */
+.skills-section h2,
+.panel-section h2 {
+  color: var(--hueso);
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1.13em;
   letter-spacing: 0.7px;
   margin-top: 0;
   margin-bottom: 11px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.13);
 }
 
 .skills ul {
@@ -249,15 +252,6 @@ body {
   box-shadow: 0 1.5px 15px #2d314225;
   border-left: 4px solid var(--acento-azul);
   border-top: 2.5px solid var(--acento);
-}
-
-.panel-section h2 {
-  color: var(--acento-azul);
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1.13em;
-  letter-spacing: 0.7px;
-  margin-top: 0;
-  margin-bottom: 11px;
 }
 
 .panel-section ul {
